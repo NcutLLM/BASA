@@ -1,7 +1,6 @@
 ﻿# 🔤 Beyond Atomic Characters: Glyph-Aware Sub-character Alignment for Low-Resource Multilingual OCR
 
-> **BASA: Beyond Atomic Sub-character Alignment**  
-> Anonymous ACL submission
+> **Authors: [Qingkai Fang](https://fangqingkai.github.io/), [Yan Zhou](https://zhouyan19.github.io/zhouyan/), [Shoutao Guo](https://scholar.google.com/citations?hl=en&user=XwHtPyAAAAAJ), [Shaolei Zhang](https://zhangshaolei1998.github.io/), [Yang Feng*](https://people.ucas.edu.cn/~yangfeng?language=en)**
 
 [![Paper](https://img.shields.io/badge/ACL%202026-paper-blue.svg)](9097_Beyond_Atomic_Characters_.pdf)
 [![Task](https://img.shields.io/badge/task-multilingual%20OCR-green.svg)](#overview)
