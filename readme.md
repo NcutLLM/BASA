@@ -9,16 +9,9 @@ BASA is a glyph-aware vision-language framework for low-resource multilingual op
 
 The central idea is to move beyond treating each character as an atomic visual token. BASA introduces a **Glyph-Aware Fine-grained Adapter (GAFA)** that explicitly aligns local glyph structure with visual features before language decoding. It is combined with a structure-first curriculum, a glyph-aware reverse-synthesis pipeline, and the BASA-Bench benchmark.
 
-## 🔥 Highlights
+## 🔥 News
 
-- **Glyph-aware visual-language alignment** through learnable glyph prototypes.
-- **Local detail enhancement** using depth-wise convolution over spatial visual features.
-- **Prototype querying and structural write-back** to preserve sub-character evidence.
-- **Auxiliary glyph-consistency supervision** without bounding-box annotations.
-- **Two-stage curriculum learning** that separates structural perception from semantic generation.
-- **Multilingual coverage** across 13 languages and several writing-system families.
-- **BASA-Bench** with 11 low-resource languages and 23 real-world scenarios.
-- Strong performance on low-resource OCR and competitive generalization to document parsing, tables, and high-resource English/Chinese benchmarks.
+- [26/04] Beyond Atomic Characters: Glyph-Aware Sub-character Alignment for Low-Resource Multilingual OCR is accepted at ACL 2026 main conference!
 
 ## Overview
 
