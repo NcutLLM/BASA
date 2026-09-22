@@ -1,13 +1,11 @@
-﻿# 🔤 Beyond Atomic Characters: Glyph-Aware Sub-character Alignment for Low-Resource Multilingual OCR
+﻿# 🦁 Beyond Atomic Characters: Glyph-Aware Sub-character Alignment for Low-Resource Multilingual OCR
 
 > **Authors: [Mengxiao Zhu], [Haixu Chen], [Jiu Sha], [Jie Liu], [Ge Shi]**
 
 [![Paper](https://img.shields.io/badge/ACL%202026-paper-blue.svg)](https://aclanthology.org/2026.acl-long.1392/)
 [![models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging_Face-Models-blue.svg)](https://huggingface.co/NCUTNLP/CrossLing-OCR-Mini)
 
-BASA is a glyph-aware vision-language framework for low-resource multilingual optical character recognition (OCR). It is designed for scripts in which character identity depends on fine-grained sub-character structure, such as strokes, radicals, stacked components, diacritics, or cursive connections.
-
-The central idea is to move beyond treating each character as an atomic visual token. BASA introduces a **Glyph-Aware Fine-grained Adapter (GAFA)** that explicitly aligns local glyph structure with visual features before language decoding. It is combined with a structure-first curriculum, a glyph-aware reverse-synthesis pipeline, and the BASA-Bench benchmark.
+BASA is a multilingual OCR model for low-resource languages and visually complex scripts. It is designed to distinguish characters that differ in fine-grained glyph details, including strokes, radicals, stacked components, diacritics, and cursive connections,improving recognition robustness for multilingual scripts such as Tibetan, Mongolian, Kazakh, Kyrgyz, Zhuang.
 
 ## 🔥 News
 
@@ -18,8 +16,8 @@ The central idea is to move beyond treating each character as an atomic visual t
 1. Clone this repository.
 
 ```shell
-git clone https://github.com/NcutLLM/BASA
-cd BASA
+git clone https://huggingface.co/NCUTNLP/CrossLing-OCR-Mini
+cd CrossLing-OCR-Mini
 ```
 
 2. Install packages.
@@ -32,35 +30,71 @@ pip install -U transformers accelerate
 
 ## Quick Start
 
-## Limitations
+Download the `CrossLing-OCR` model.
+```shell
+git clone https://huggingface.co/NCUTNLP/CrossLing-OCR-Mini
+```
+> [!Tip]
+> If you’re experiencing unstable connections to Hugging Face from within China, you can try setting the following in your command line:
+> 
+> ```shell
+> export HF_ENDPOINT=https://hf-mirror.com
+> ```
 
-- The method depends on meaningful sub-character decompositions and may be less effective for scripts without standardized component rules.
-- Highly cursive scripts can have ambiguous sub-character boundaries.
-- Glyph supervision is image-level rather than spatially localized, because the method avoids bounding-box annotation.
-- Prototype querying and auxiliary supervision introduce additional training cost.
-- BASA-Bench covers 11 representative low-resource languages and 23 scenarios, so it does not exhaustively represent all scripts or document conditions.
-- Handwritten and severely historical documents require further evaluation.
+## Example
 
-## License
+Simple OCR Inference Example
 
-The paper describes the method and reports that the model and benchmark are intended for release. The repository should add the final code, checkpoint, dataset, and license terms when they become available.
+```shell
+from transformers import AutoModel, AutoTokenizer
 
-Before redistribution or commercial deployment, verify the licenses of the BASA implementation and model, AIMV2, Qwen2.5, all training and evaluation datasets, and third-party OCR components.
+# Hugging Face model id
+model_id = "NCUTNLP/CrossLing-OCR-Mini"
+# Load tokenizer and model
+tokenizer = AutoTokenizer.from_pretrained(
+    model_id,
+    trust_remote_code=True
+)
+model = AutoModel.from_pretrained(
+    model_id,
+    trust_remote_code=True,
+    low_cpu_mem_usage=True,
+    device_map="cuda",
+    use_safetensors=True,
+    pad_token_id=tokenizer.eos_token_id
+)
+model = model.eval().cuda()
+# Input image
+image_file = "test.png"
+# Perform plain text OCR
+result = model.chat(
+    tokenizer,
+    image_file,
+    ocr_type="ocr"
+)
+print("Predicted OCR result:\n")
+print(result)
+
+```
+
+## LICENSE
+
+Our code is released under the Apache-2.0 License. Our model is intended for academic research purposes only and may **NOT** be used for commercial purposes.
+
+You are free to use, modify, and distribute this model in academic settings, provided that the following conditions are met:
+
+- **Non-commercial use**: The model may not be used for any commercial purposes.
+- **Citation**: If you use this model in your research, please cite the original work.
 
 ## Citation
 
-The supplied PDF is an anonymous ACL submission, so the final author list, venue metadata, and official citation should be updated after publication.
+If you have any questions, please feel free to submit an issue or contact `zhumx@ncut.edu.cn`.
 
 ```bibtex
 @inproceedings{anonymous2026basa,
   title     = {Beyond Atomic Characters: Glyph-Aware Sub-character Alignment for Low-Resource Multilingual OCR},
-  author    = {Anonymous},
+  author    = {Mengxiao Zhu and Haixu Chen and Jiu Sha and Jie Liu and Ge Shi},
   booktitle = {Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics},
   year      = {2026}
 }
 ```
-
-## Acknowledgements
-
-The paper compares BASA with and builds upon a range of OCR and vision-language systems, including AIMV2, Qwen2.5, MinerU, Marker, Dolphin, Mathpix, PP-StructureV3, GOT-OCR, OCRFlux, MonkeyOCR-Pro, DeepSeek-OCR, dots.ocr, GPT-4o, Qwen2.5-VL, and Gemini 2.5 Pro.
-
