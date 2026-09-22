@@ -2,7 +2,7 @@
 
 > **Authors: [Mengxiao Zhu], [Haixu Chen], [Jiu Sha], [Jie Liu], [Ge Shi]**
 
-[![Paper](https://img.shields.io/badge/ACL%202026-paper-blue.svg)](9097_Beyond_Atomic_Characters_.pdf)
+[![Paper](https://img.shields.io/badge/ACL%202026-paper-blue.svg)](https://aclanthology.org/2026.acl-long.1392/)
 [![Task](https://img.shields.io/badge/task-multilingual%20OCR-green.svg)](#overview)
 [![Languages](https://img.shields.io/badge/languages-13-orange.svg)](#data-and-benchmarks)
 
