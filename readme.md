@@ -32,43 +32,6 @@ pip install -U transformers accelerate
 
 ## Quick Start
 
-
-### OmniDocBench
-
-On English and Chinese document understanding, BASA reports:
-
-- Overall Edit: **0.126 / 0.132**
-- Text Edit: **0.035 / 0.061**
-- Table TEDS: **88.90 / 90.20**
-- Table Edit: **0.097 / 0.091**
-- Read Order Edit: **0.042 / 0.066**
-
-The results show that glyph-aware alignment remains useful beyond low-resource languages, especially for dense typography, mixed layouts, and table structure.
-
-### OCRFlux benchmarks
-
-| Benchmark | Result |
-| --- | ---: |
-| OCRFlux-bench-single, English AvgEDS | 0.909 |
-| OCRFlux-bench-single, Chinese AvgEDS | 0.932 |
-| OCRFlux-bench-single, overall AvgEDS | 0.921 |
-| OCRFlux-pubtabnet-single, simple AvgTEDS | 0.912 |
-| OCRFlux-pubtabnet-single, complex AvgTEDS | 0.868 |
-| OCRFlux-pubtabnet-single, overall AvgTEDS | 0.891 |
-
-## Ablation Findings
-
-The ablation study supports all major components:
-
-- Replacing GAFA with a linear projector substantially degrades performance.
-- Removing glyph supervision increases CER from 0.0343 to 0.0498.
-- One-stage training performs worse than the structure-first curriculum.
-- Training only on authentic data is weaker than combining authentic and synthetic data.
-- Cross-attention improves over a simple linear projection, but the full prototype-based GAFA performs best.
-
-These results suggest that the gains come from explicit structural grounding rather than simply increasing model capacity.
-
-
 ## Limitations
 
 - The method depends on meaningful sub-character decompositions and may be less effective for scripts without standardized component rules.
