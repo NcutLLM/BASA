@@ -1,6 +1,6 @@
 ﻿# 🔤 Beyond Atomic Characters: Glyph-Aware Sub-character Alignment for Low-Resource Multilingual OCR
 
-> **Authors: [Mengxiao Zhu], [Haixu Chen], [Jiu Sha], [Jie Liu], [Ge Shi*]**
+> **Authors: [Mengxiao Zhu], [Haixu Chen], [Jiu Sha], [Jie Liu], [Ge Shi]**
 
 [![Paper](https://img.shields.io/badge/ACL%202026-paper-blue.svg)](9097_Beyond_Atomic_Characters_.pdf)
 [![Task](https://img.shields.io/badge/task-multilingual%20OCR-green.svg)](#overview)
