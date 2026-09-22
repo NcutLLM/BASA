@@ -3,7 +3,6 @@
 > **Authors: [Mengxiao Zhu], [Haixu Chen], [Jiu Sha], [Jie Liu], [Ge Shi]**
 
 [![Paper](https://img.shields.io/badge/ACL%202026-paper-blue.svg)](https://aclanthology.org/2026.acl-long.1392/)
-[![Task](https://img.shields.io/badge/task-multilingual%20OCR-green.svg)](#overview)
 [![models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging_Face-Models-blue.svg)](https://huggingface.co/NCUTNLP/CrossLing-OCR-Mini)
 
 BASA is a glyph-aware vision-language framework for low-resource multilingual optical character recognition (OCR). It is designed for scripts in which character identity depends on fine-grained sub-character structure, such as strokes, radicals, stacked components, diacritics, or cursive connections.
