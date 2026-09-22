@@ -5,7 +5,7 @@
 [![Paper](https://img.shields.io/badge/ACL%202026-paper-blue.svg)](https://aclanthology.org/2026.acl-long.1392/)
 [![models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging_Face-Models-blue.svg)](https://huggingface.co/NCUTNLP/CrossLing-OCR-Mini)
 
-BASA is a multilingual OCR model for low-resource languages and visually complex scripts. It is designed to distinguish characters that differ in fine-grained glyph details, including strokes, radicals, stacked components, diacritics, and cursive connections,improving recognition robustness for multilingual scripts such as Tibetan, Mongolian, Kazakh, Kyrgyz, Zhuang.
+BASA is a multilingual OCR model framework for low-resource languages and visually complex scripts. It is designed to distinguish characters that differ in fine-grained glyph details, including strokes, radicals, stacked components, diacritics, and cursive connections,improving recognition robustness for multilingual scripts such as Tibetan, Mongolian, Kazakh, Kyrgyz, Zhuang.
 
 ## 🔥 News
 
@@ -76,7 +76,14 @@ print("Predicted OCR result:\n")
 print(result)
 
 ```
+## Notes
+> ocr_type="ocr" enables plain text OCR mode
 
+> The model automatically handles multilingual text recognition
+
+> For best results, input images should be clear and upright
+
+> Consumer-grade GPUs (e.g., RTX 3060 / 3090) are sufficient for inference
 ## LICENSE
 
 Our code is released under the Apache-2.0 License. Our model is intended for academic research purposes only and may **NOT** be used for commercial purposes.
